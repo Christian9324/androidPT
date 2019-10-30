@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="linea1C">#EC699B</color>
+    <color name="linea2C">#0474BC</color>
+    <color name="linea3C">#BFAA1D</color>
+    <color name="linea4C">#7BC7BA</color>
+    <color name="linea5C">#FFDB25</color>
+    <color name="linea6C">#E82428</color>
+    <color name="linea7C">#F17C2F</color>
+    <color name="linea8C">#00A263</color>
+    <color name="linea9C">#541C01</color>
+    <color name="lineaAC">#8F248E</color>
+    <color name="lineaBC">#008952</color>
+    <color name="linea12C">#B99E59</color>
+</resources>

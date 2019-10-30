@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navegacion_usuario"
+        android:icon="@drawable/ic_account_circle"
+        android:title="@string/navegacion_usuario"/>
+    <item
+        android:id="@+id/navegacion_ruta"
+        android:icon="@drawable/ic_directions_subway_blue_48dp"
+        android:title="@string/navegacion_ruta"/>
+    <item
+        android:id="@+id/navegacion_mapa"
+        android:icon="@drawable/ic_directions_run_black_48dp"
+        android:title="@string/navegacion_mapa"/>
+    <item
+        android:id="@+id/navegacion_historial"
+        android:icon="@drawable/ic_map_blue_48dp"
+        android:title="@string/navegacion_historial"/>
+
+</menu>

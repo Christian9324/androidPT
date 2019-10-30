@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_navigation"
+    app:startDestination="@+id/navegacion_usuario">
+
+    <fragment
+        android:id="@+id/navegacion_usuario"
+        android:label="@string/navegacion_usuario"
+        android:name="com.example.acorutas.ui.user_Fragment"
+        tools:layout="@layout/fragment_user_"/>
+    <fragment
+        android:id="@+id/navegacion_ruta"
+        android:label="@string/navegacion_ruta"
+        android:name="com.example.acorutas.ui.rutas_Fragment"
+        tools:layout="@layout/fragment_rutas_"/>
+    <fragment
+        android:id="@+id/navegacion_mapa"
+        android:label="@string/navegacion_mapa"
+        android:name="com.example.acorutas.ui.mapa_Fragment"
+        tools:layout="@layout/fragment_mapa_"/>
+    <fragment
+        android:id="@+id/navegacion_historial"
+        android:label="@string/navegacion_historial"
+        android:name="com.example.acorutas.ui.history_Fragment"
+        tools:layout="@layout/fragment_history_"/>
+
+
+</navigation>

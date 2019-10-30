@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user_Fragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="Usuario"
+                android:textSize="9pt"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"/>
+            <!-- TODO: Update blank fragment layout -->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_account_circle"/>
+            <EditText
+                android:id="@+id/ET_username"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:gravity="center"
+                android:hint="Nombre de usuario"
+                android:layout_gravity="center"
+                android:inputType="textPersonName"/>
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latitud: "
+                android:layout_gravity="center"
+                android:textSize="14pt"/>
+            <EditText
+                android:id="@+id/ET_latitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10pt"
+                android:gravity="center"
+                android:hint="Latitud"
+                android:inputType="numberDecimal|numberSigned"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitud: "
+                android:layout_gravity="center"
+                android:textSize="13pt"/>
+            <EditText
+                android:id="@+id/ET_longitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10pt"
+                android:gravity="center"
+                android:hint="Longitud"
+                android:inputType="numberDecimal|numberSigned"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btn_enviar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="Enviar"
+                        android:textSize="10pt" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btn_recolectar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="Recolectar"
+                        android:textSize="10pt" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TV_resultados"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

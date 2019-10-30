@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Aco Rutas</string>
+    <string name="navegacion_usuario">Usuario</string>
+    <string name="navegacion_ruta">Ruta</string>
+    <string name="navegacion_mapa">Mapa</string>
+    <string name="navegacion_historial">Historial</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
