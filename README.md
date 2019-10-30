@@ -7,4 +7,6 @@ You can put code with this:
 
 ```{java}
 String example;
+int j;
 ```
+
