@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
 
+import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -63,6 +65,8 @@ public class rutas_Fragment extends Fragment {
         double miLat = 0;
         double miLong = 0;
 
+        double[][] tresM;
+
         Cursor fila = BDD.rawQuery
                 ("select etiqueta,latitud,longitud from miUbicacion order by id desc limit 1", null);
 
@@ -84,9 +88,77 @@ public class rutas_Fragment extends Fragment {
 
         }
 
-        
+        tresM = mejores(miLat,miLong);
+
+
 
     }
 
+
+
+    public double[][] mejores(double latitud, double longitud)
+    {
+
+        double[][] lista;
+        double[][] mejores = new double[3][2];
+
+        lista = distancia(latitud, longitud);
+
+        lista = burbuja(lista);
+
+        mejores[0] = lista[1];
+        mejores[1] = lista[2];
+        mejores[2] = lista[3];
+
+        return mejores;
+
+    }
+
+    public double[][] distancia(double latitud, double longitud){
+
+        double[][] distancia = new double[196][2];
+        int indice;
+        double la;
+        double lo;
+
+        for ( String[] dato : estacionesMetro){
+            indice = Integer.parseInt(dato[0]);
+            la = Double.parseDouble(dato[3]);
+            lo = Double.parseDouble(dato[4]);
+
+            distancia[indice][0] = indice;
+            distancia[indice][1] = Math.sqrt(Math.pow(latitud-la ,2) + Math.pow(longitud-lo ,2));
+        }
+
+        return distancia;
+
+    }
+
+    public double[][] burbuja(double[][] arreglo)
+    {
+        double auxiliar0;
+        double auxiliar1;
+        double[][] arregloO;
+
+        for(int i = 2; i < 196; i++)
+        {
+            for(int j = 0;j < 196-i;j++)
+            {
+                if(arreglo[j][1] > arreglo[j+1][1])
+                {
+                    auxiliar0 = arreglo[j][0];
+                    auxiliar1 = arreglo[j][1];
+
+                    arreglo[j][0] = arreglo[j+1][0];
+                    arreglo[j][1] = arreglo[j+1][1];
+                    arreglo[j+1][0] = auxiliar1;
+                    arreglo[j+1][1] = auxiliar0;
+                }
+            }
+        }
+
+        arregloO = arreglo;
+        return arregloO;
+    }
 
 }
