@@ -91,6 +91,7 @@ public class user_Fragment extends Fragment {
         String S_longi = longitud.getText().toString();
 
         if( !title.isEmpty() && !S_lati.isEmpty() && !S_longi.isEmpty()){
+
             ContentValues datos_ubi_punto = new ContentValues();
 
             datos_ubi_punto.put("etiqueta", title);

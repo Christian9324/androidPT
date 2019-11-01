@@ -1,10 +1,16 @@
 package com.example.acorutas.ui;
 
 
+import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
@@ -85,8 +92,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         List<LatLng> puntoslineaB = new ArrayList<LatLng>();
         List<LatLng> puntoslinea12 = new ArrayList<LatLng>();
 
-        double miLatitud = 19.504810;
-        double miLongitud = -99.5050;
+        double miLatitud = 19.5113961;
+        double miLongitud = -99.1269034;
 
 
 
@@ -133,9 +140,31 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         }
 
 
+        Cursor fila = BDD.rawQuery
+                ("select etiqueta,latitud,longitud from miUbicacion order by id desc limit 1", null);
+
+        if(fila.moveToFirst()){
+
+            miLatitud = Double.parseDouble(fila.getString(1));
+            miLongitud = Double.parseDouble(fila.getString(2));
+
+            BDD.close();
+
+        } else {
+
+            Toast.makeText( getActivity().getApplicationContext(),
+                    "No se encontro la estacion", Toast.LENGTH_SHORT).show();
+            BDD.close();
+
+            miLatitud = 19.5113961;
+            miLongitud = -99.1269034;
+
+        }
+
+
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(miLatitud, miLongitud))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_account_circle))
+                .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_account_circle))
                 .title("Mi ubicacion"));
 
 
@@ -190,5 +219,14 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                 .color(getResources().getColor(R.color.linea12C)));
 
         mMap.setMinZoomPreference(11.0f);
+    }
+
+    private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 }

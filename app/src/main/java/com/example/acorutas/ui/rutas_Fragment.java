@@ -1,12 +1,14 @@
 package com.example.acorutas.ui;
 
 
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -14,12 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
 
@@ -32,6 +39,7 @@ public class rutas_Fragment extends Fragment {
     private float mScaleFactor = 1.0f;
     private ImageView mImageView;
     private TextView tv_consulta;
+    private AutoCompleteTextView estDes, estOrig;
 
     private WebView Wmapa;
 
@@ -45,27 +53,49 @@ public class rutas_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_rutas_, container, false);
 
-        Wmapa = (WebView) v.findViewById(R.id.mapaMetro);
         tv_consulta = (TextView) v.findViewById(R.id.consulta);
-        Wmapa.loadUrl("https://www.metro.cdmx.gob.mx/storage/app/media/red/plano_red19ok.png");
-        Wmapa.getSettings().setJavaScriptEnabled(true);
-        Wmapa.setWebViewClient(new WebViewClient());
+        Wmapa = (WebView) v.findViewById(R.id.mapaMetro);
+        
+        //Wmapa.loadUrl("https://www.metro.cdmx.gob.mx/storage/app/media/red/plano_red19ok.png");
+        //Wmapa.getSettings().setJavaScriptEnabled(true);
+        //Wmapa.setWebViewClient(new WebViewClient());
 
-        Cercanos();
+        String url = "<img src='plano_red19ok.png' " + "' style='width:100%'" + "/>";
+        Wmapa.loadDataWithBaseURL("file:///android_res/drawable/", url , "text/html", "utf-8", null);
+
+        Wmapa.getSettings().setLoadWithOverviewMode(true);
+        Wmapa.getSettings().setUseWideViewPort(true);
+        Wmapa.getSettings().setBuiltInZoomControls(true);
+
+        estDes = (AutoCompleteTextView) v.findViewById(R.id.ACTV_estacionDestino);
+
+        ACTV_datosIniciales();
 
         return v;
     }
 
 
-    public void Cercanos(){
+    public void ACTV_datosIniciales(){
 
-        adminBDDhelper admin = new adminBDDhelper(getActivity().getApplicationContext(), "Ubicacion", null, 1);
+        adminBDDhelper admin = new adminBDDhelper
+                (getActivity().getApplicationContext(), "Ubicacion", null, 1);
         SQLiteDatabase BDD = admin.getWritableDatabase();
+
+        String[] Estacion = new String[195];
+        // Inicializas array
+        for(int i = 0; i<195; i++){
+
+            Estacion[i] = estacionesMetro[i][2];
+
+        }
+
 
         double miLat = 0;
         double miLong = 0;
 
         double[][] tresM;
+
+        //----------  Hacer Query a la BDD
 
         Cursor fila = BDD.rawQuery
                 ("select etiqueta,latitud,longitud from miUbicacion order by id desc limit 1", null);
@@ -83,14 +113,22 @@ public class rutas_Fragment extends Fragment {
 
         } else {
 
-            Toast.makeText( getActivity().getApplicationContext(), "No se encontro la estacion", Toast.LENGTH_SHORT).show();
+            Toast.makeText( getActivity().getApplicationContext(),
+                    "No se encontro la estacion", Toast.LENGTH_SHORT).show();
             BDD.close();
 
         }
 
+        //-----------  Generar ID de las primeras 3 estaciones mas cercanas
+
         tresM = mejores(miLat,miLong);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (getActivity().getApplicationContext(),
+                        android.R.layout.simple_dropdown_item_1line, Estacion);
 
+        estDes.setThreshold(1);
+        estDes.setAdapter(adapter);
 
     }
 
