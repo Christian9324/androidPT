@@ -19,6 +19,7 @@ import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
@@ -39,7 +41,8 @@ public class rutas_Fragment extends Fragment {
     private float mScaleFactor = 1.0f;
     private ImageView mImageView;
     private TextView tv_consulta;
-    private AutoCompleteTextView estDes, estOrig;
+    private AutoCompleteTextView estDes;
+    private Spinner estOrig;
 
     private WebView Wmapa;
 
@@ -68,6 +71,7 @@ public class rutas_Fragment extends Fragment {
         Wmapa.getSettings().setBuiltInZoomControls(true);
 
         estDes = (AutoCompleteTextView) v.findViewById(R.id.ACTV_estacionDestino);
+        estOrig = (Spinner) v.findViewById(R.id.Spinner_estacionInicio);
 
         ACTV_datosIniciales();
 
@@ -130,6 +134,21 @@ public class rutas_Fragment extends Fragment {
         estDes.setThreshold(1);
         estDes.setAdapter(adapter);
 
+        // numero de estacion
+        //Log.d("dato mejor" , String.valueOf(tresM[0][0]));
+
+        String[] datos_spinner = new String[3];
+        datos_spinner[0] = estacionesMetro[(int)tresM[0][0] - 1][2];
+        datos_spinner[1] = estacionesMetro[(int)tresM[1][0] - 1][2];
+        datos_spinner[2] = estacionesMetro[(int)tresM[2][0] - 1][2];
+
+        estOrig.setAdapter(new ArrayAdapter<String>
+                (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, datos_spinner));
+
+        //Log.i("datos", String.valueOf(tresM[0][0]));
+        //Log.i("datos", String.valueOf(tresM[1][0]));
+        //Log.i("datos", String.valueOf(tresM[1][0]));
+
     }
 
 
@@ -144,6 +163,18 @@ public class rutas_Fragment extends Fragment {
 
         lista = burbuja(lista);
 
+        //mejores 3 sin repeticiones
+        /*
+        HashSet<double[][]> listaC = new HashSet<>();
+
+        for (int s = 1; s < 196 ; s++){
+            if (!listaC.contains(lista[1])){
+                listaC.add(lista[s]);
+            }
+        }
+
+        Log.i("datos ", String.valueOf(listaC[0][1]));
+         */
         mejores[0] = lista[1];
         mejores[1] = lista[2];
         mejores[2] = lista[3];
@@ -151,6 +182,7 @@ public class rutas_Fragment extends Fragment {
         return mejores;
 
     }
+
 
     public double[][] distancia(double latitud, double longitud){
 

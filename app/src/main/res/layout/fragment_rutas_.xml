@@ -36,15 +36,15 @@
                     android:layout_gravity="center"
                     android:layout_weight="3">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/ACTV_estacionInicio"
+                    <Spinner
+                        android:id="@+id/Spinner_estacionInicio"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Estacion Inicio"
-                        android:completionThreshold="1"
                         android:singleLine="true"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
 
                     <AutoCompleteTextView
                         android:id="@+id/ACTV_estacionDestino"
