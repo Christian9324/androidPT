@@ -94,14 +94,7 @@ public class rutas_Fragment extends Fragment {
         cal_ruta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //WS_calcularRuta();
-
-                Bundle data_send = new Bundle();
-                String datos_prueba = "Hola mundo";
-                data_send.putString("cadena_prueba" ,datos_prueba);
-                Navigation.findNavController(getView()).navigate(R.id.navegacion_mapa, data_send);
-
-
+                WS_calcularRuta();
 
             }
         });
@@ -305,6 +298,8 @@ public class rutas_Fragment extends Fragment {
 
         Log.i("ini", i);
         Log.i("des", d);
+        Log.i("ini", String.valueOf(ini));
+        Log.i("des", String.valueOf(des));
 
         crearRuta(ini, des);
 
@@ -334,6 +329,12 @@ public class rutas_Fragment extends Fragment {
                 contenido += "Ruta establecida " + rutas.getRutaNodos() + "\n\n";
 
                 tv_consulta.append(contenido);
+
+
+                Bundle data_send = new Bundle();
+                String datos_prueba = rutas.getRutaNodos();
+                data_send.putString("cadena_prueba" ,datos_prueba);
+                Navigation.findNavController(getView()).navigate(R.id.navegacion_mapa, data_send);
 
             }
 

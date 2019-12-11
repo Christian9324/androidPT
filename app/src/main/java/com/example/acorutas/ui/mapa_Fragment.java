@@ -36,6 +36,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
 
@@ -46,6 +47,13 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
     SupportMapFragment mapFragment;
     private GoogleMap mMap;
+
+    public int accion = 0;
+    public String[] estacionesString;
+    public String auxString;
+    public String[] auxStringV;
+
+    public List<LatLng> miRuta = new ArrayList<LatLng>();
 
     public mapa_Fragment() {
         // Required empty public constructor
@@ -60,9 +68,58 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
-        String info = getArguments().getString("cadena_prueba");
+        try {
 
-        Log.i("informacion", info);
+            String info = getArguments().getString("cadena_prueba");
+
+            Log.i("informacion", info);
+
+            if(info.equals("[E]")){
+                Log.i("peticion", "Espera");
+                accion = 0;
+
+            }else{
+                Log.i("peticion", "Aceptada");
+
+                estacionesString = info.split(", ");
+
+                int indice = estacionesString.length - 1;
+
+                auxString = estacionesString[0];
+                auxStringV =  auxString.split(Pattern.quote("["));
+                estacionesString[0] = auxStringV[1];
+
+
+                auxString = estacionesString[indice];
+                auxStringV =  auxString.split(Pattern.quote("]"));
+                estacionesString[indice] = auxStringV[0];
+
+                for(int index = 0; index < estacionesString.length ; index++){
+
+                    for( int index2 = 0; index2 < 195; index2++) {
+
+                        if (estacionesMetro[index2][5].equals(estacionesString[index])) {
+
+                            Log.i("Linea1", estacionesMetro[index2][5]);
+
+                            Log.i("Linea2", estacionesString[index]);
+                            miRuta.add(new LatLng(Double.parseDouble(estacionesMetro[index2][3]), Double.parseDouble(estacionesMetro[index2][4])));
+                            continue;
+
+                        }
+
+                    }
+                }
+
+                accion = 1;
+
+            }
+
+        } catch (Exception e){
+
+            Log.i("problem" , e.getMessage());
+
+        }
 
         if (mapFragment == null){
             FragmentManager fragmentManager = getFragmentManager();
@@ -83,6 +140,7 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         SQLiteDatabase BDD = admin.getWritableDatabase();
 
         mMap = googleMap;
+
 
         List<LatLng> puntoslinea1 = new ArrayList<LatLng>();
         List<LatLng> puntoslinea2 = new ArrayList<LatLng>();
@@ -172,6 +230,16 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                 .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_account_circle))
                 .title("Mi ubicacion"));
 
+        if ( accion == 1){
+
+            Polyline miLinea = mMap.addPolyline(new PolylineOptions()
+                    .addAll(miRuta)
+                    .width(33)
+                    .color(getResources().getColor(R.color.miLineaC)));
+
+            Log.i("Linea", "Se pinto");
+
+        }
 
         Polyline linea1 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea1)
@@ -222,6 +290,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                 .addAll(puntoslinea12)
                 .width(11)
                 .color(getResources().getColor(R.color.linea12C)));
+
+
 
         mMap.setMinZoomPreference(11.0f);
     }
