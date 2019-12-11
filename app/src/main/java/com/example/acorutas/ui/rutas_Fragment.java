@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -93,7 +94,15 @@ public class rutas_Fragment extends Fragment {
         cal_ruta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WS_calcularRuta();
+                //WS_calcularRuta();
+
+                Bundle data_send = new Bundle();
+                String datos_prueba = "Hola mundo";
+                data_send.putString("cadena_prueba" ,datos_prueba);
+                Navigation.findNavController(getView()).navigate(R.id.navegacion_mapa, data_send);
+
+
+
             }
         });
 

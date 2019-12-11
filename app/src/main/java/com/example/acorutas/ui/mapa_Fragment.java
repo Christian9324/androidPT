@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,10 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         View v = inflater.inflate(R.layout.fragment_mapa_, container, false);
 
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+
+        String info = getArguments().getString("cadena_prueba");
+
+        Log.i("informacion", info);
 
         if (mapFragment == null){
             FragmentManager fragmentManager = getFragmentManager();
