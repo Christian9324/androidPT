@@ -24,7 +24,7 @@ public class adminBDDhelper extends SQLiteOpenHelper {
 
         for(String[] datosM : estacionesMetro){
             db.execSQL("INSERT INTO Metro VALUES " +
-                    "("+ datosM[0] + "," + datosM[1] + "," + datosM[2] + "," + datosM[3] + "," + datosM[4] + ")");
+                    "("+ datosM[0] + ",'" + datosM[1] + "','" + datosM[2] + "'," + datosM[3] + "," + datosM[4] + ")");
         }
     }
 

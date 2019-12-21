@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/login"
+    android:background="#202732">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,56 +12,63 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_user_login"
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_account_circle"
                 />
 
             <EditText
-                android:layout_width="200sp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_pass_login"
-                />
+                android:id="@+id/ET_usuario"
+                android:layout_marginTop="@dimen/separacion"
+                android:hint="@string/tv_user_login"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="#5F5F5F"
+                android:textColorHint="#F6F6F6"/>
 
             <EditText
-                android:layout_width="200sp"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ET_password"
+                android:layout_marginTop="@dimen/separacion"
+                android:hint="@string/tv_pass_login"
+                android:backgroundTint="@color/colorPrimary"
+                android:inputType="textPassword"
+                android:textColor="#5F5F5F"
+                android:textColorHint="#F6F6F6"/>
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="25dp">
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/separacion2">
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="@string/btn_login_entrar"/>
+                android:id="@+id/btn_entrar"
+                android:text="@string/btn_login_entrar"
+                android:textColor="#F5F5F5"
+                android:background="@drawable/btn_redondeado"/>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="@string/btn_login_registrar"/>
+                android:id="@+id/btn_registro"
+                android:layout_marginTop="15dp"
+                android:text="@string/btn_login_registrar"
+                android:textColor="#F5F5F5"
+                android:background="@drawable/btn_redondeado_sin_borde"/>
 
         </LinearLayout>
 
