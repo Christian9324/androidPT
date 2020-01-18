@@ -1,4 +1,4 @@
-package com.example.acorutas.ui;
+package com.example.acorutas.ui.Mapa;
 
 
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -22,7 +21,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.acorutas.BottomSheetDialog;
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -139,8 +137,10 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         btn_bottomSheetLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
-                bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms heet");
+
+                bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms sheet");
             }
         });
 
