@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
         opcion = prefs.getInt("opcion", 0);
 
+        // quitar esta opcion
+        opcion = 2;
+
         if(opcion == 1){
 
             setContentView(R.layout.activity_main);
@@ -61,7 +64,12 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(navigationView, navController);
 
 
-        } else {
+        }else if(opcion==2){
+
+            setContentView(R.layout.bottom_sheet_layout);
+
+        }
+        else {
             setContentView(R.layout.login);
             btn_acceso = (Button) findViewById(R.id.btn_entrar);
             et_usuario = (EditText) findViewById(R.id.ET_usuario);

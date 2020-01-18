@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mapa_Fragment">
+    tools:context=".ui.Mapa.mapa_Fragment">
 
     <FrameLayout
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.mapa_Fragment"/>
+        tools:context=".ui.Mapa.mapa_Fragment"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
         android:layout_marginBottom="60dp">
 
         <Button
+            android:id="@+id/infoMapa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

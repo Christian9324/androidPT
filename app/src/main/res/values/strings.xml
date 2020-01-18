@@ -16,4 +16,6 @@
     <string name="tv_correo_form">Correo:</string>
     <string name="tv_pass1_form">Contraseña:</string>
     <string name="tv_pass2_form">Repetir contraseña:</string>
+    <string name="ruta">Ruta por Estaciones</string>
+    <string name="tv_entacionInfo">Informacion de la Estacion</string>
 </resources>

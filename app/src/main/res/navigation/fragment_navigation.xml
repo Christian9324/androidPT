@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/navegacion_mapa"
         android:label="@string/navegacion_mapa"
-        android:name="com.example.acorutas.ui.mapa_Fragment"
+        android:name="com.example.acorutas.ui.Mapa.mapa_Fragment"
         tools:layout="@layout/fragment_mapa_"/>
     <fragment
         android:id="@+id/navegacion_historial"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/contenedorEstaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginTop="5dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_estacion"
+            android:layout_width="@dimen/imagen_estacion"
+            android:layout_height="@dimen/imagen_estacion"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/ic_account_box_80dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TV_estacionInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tv_entacionInfo"
+            android:maxLines="2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:layout_toStartOf="@id/image_estacion"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -19,8 +19,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.acorutas.BottomSheetDialog;
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -55,6 +57,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
     public List<LatLng> miRuta = new ArrayList<LatLng>();
 
+    public Button btn_bottomSheetLayout;
+
     public mapa_Fragment() {
         // Required empty public constructor
     }
@@ -67,6 +71,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         View v = inflater.inflate(R.layout.fragment_mapa_, container, false);
 
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+
+        btn_bottomSheetLayout = (Button) v.findViewById(R.id.infoMapa);
 
         try {
 
@@ -129,6 +135,14 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
             mapFragment.getMapAsync(this);
         }
+
+        btn_bottomSheetLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
+                bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms heet");
+            }
+        });
 
         return v;
     }
