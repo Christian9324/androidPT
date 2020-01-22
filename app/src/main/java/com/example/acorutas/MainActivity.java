@@ -6,6 +6,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,9 +20,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.acorutas.Data.models.estacionInformacion;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements OnItemClickListener {
 
     private int opcion=0;
 
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_acceso;
     private EditText et_usuario;
     private EditText et_password;
+
+    private RecyclerView recyclerView;
+    private estacionesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
         }else if(opcion==2){
 
             setContentView(R.layout.bottom_sheet_layout);
+
+            recyclerView = (RecyclerView) findViewById(R.id.RV_estaciones);
+
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager( new LinearLayoutManager(getApplicationContext()));
+            adapter = new estacionesAdapter(new ArrayList<estacionInformacion>(), this);
+
+            recyclerView.setAdapter(adapter);
+
+
 
         }
         else {
@@ -124,6 +142,16 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_LONG).show();
         }
+
+    }
+
+    @Override
+    public void onItemClick(estacionInformacion estacionInfo) {
+
+    }
+
+    @Override
+    public void onLongItemClick(estacionInformacion estacionInfo) {
 
     }
 }

@@ -16,17 +16,12 @@
         android:text="@string/ruta"
         android:textSize="25sp"/>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="470dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:id="@+id/RV_estaciones"
-            tools:listitem="@layout/item_estacion"/>
-
-    </ScrollView>
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/RV_estaciones"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_estacion"/>
 
 </LinearLayout>

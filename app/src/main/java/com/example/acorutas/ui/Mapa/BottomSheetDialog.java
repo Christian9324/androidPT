@@ -1,7 +1,6 @@
 package com.example.acorutas.ui.Mapa;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements OnIt
         generateEstaciones();
 
 
-
         return v;
     }
 
@@ -61,6 +59,8 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements OnIt
 
         }
 
+
+
     }
 
     public void configAdapter() {
@@ -69,7 +69,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements OnIt
 
     public void configRecyclerView() {
 
-        recyclerView.setLayoutManager( new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager( new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
     }
 
