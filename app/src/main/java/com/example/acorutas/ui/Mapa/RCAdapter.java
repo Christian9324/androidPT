@@ -1,5 +1,8 @@
 package com.example.acorutas.ui.Mapa;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +54,13 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.ViewHolderDatos> {
         }
 
         public void asignarDatos(estacionInformacion estacionInformacion) {
+
+            byte[] decodedString = Base64.decode(estacionInformacion.getImagen(), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+            imEstacion.setImageBitmap(decodedByte);
             tv_estacionInfo.setText(estacionInformacion.getInformacion());
+
         }
     }
 }
