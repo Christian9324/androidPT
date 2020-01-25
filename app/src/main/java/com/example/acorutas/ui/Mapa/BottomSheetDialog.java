@@ -36,14 +36,9 @@ public class BottomSheetDialog extends BottomSheetDialogFragment{
 
         ArrayList<estacionInformacion> info = new ArrayList<>();
 
-        String[] nombreEstacion = {estacionesMetro[0][2], estacionesMetro[1][2], estacionesMetro[2][2]};
-        String[] informacion = {"estacion origen\n" + nombreEstacion[0], "siguiente estacion\n" + nombreEstacion[1], "estacion destino\n" + nombreEstacion[2]};
-        String[] imagen = { imgEstaciones[0], imgEstaciones[1], imgEstaciones[2] };
-
-
-
-        for(int i = 0;i<3;i++){
-            estacionInformacion infoAUX = new estacionInformacion(i+1, nombreEstacion[i], informacion[i], imagen[i]);
+        for(int i = 0;i<195;i++){
+            estacionInformacion infoAUX = new estacionInformacion(i+1,
+                    estacionesMetro[i][2], "Estacion: \n" + estacionesMetro[i][2], imgEstaciones[i]);
             info.add(infoAUX);
         }
 

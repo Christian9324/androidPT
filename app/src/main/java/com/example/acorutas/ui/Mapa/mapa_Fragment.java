@@ -103,10 +103,6 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                     for( int index2 = 0; index2 < 195; index2++) {
 
                         if (estacionesMetro[index2][5].equals(estacionesString[index])) {
-
-                            Log.i("Linea1", estacionesMetro[index2][5]);
-
-                            Log.i("Linea2", estacionesString[index]);
                             miRuta.add(new LatLng(Double.parseDouble(estacionesMetro[index2][3]), Double.parseDouble(estacionesMetro[index2][4])));
                             continue;
 
@@ -230,7 +226,7 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         } else {
 
             Toast.makeText( getActivity().getApplicationContext(),
-                    "No se encontro la estacion", Toast.LENGTH_SHORT).show();
+                    "No se encontro la ultima posición", Toast.LENGTH_SHORT).show();
             BDD.close();
 
             miLatitud = 19.5113961;
@@ -257,52 +253,52 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
         Polyline linea1 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea1)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea1C)));
 
         Polyline linea2 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea2)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea2C)));
         Polyline linea3 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea3)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea3C)));
         Polyline linea4 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea4)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea4C)));
         Polyline linea5 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea5)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea5C)));
         Polyline linea6 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea6)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea6C)));
         Polyline linea7 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea7)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea7C)));
         Polyline linea8 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea8)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea8C)));
         Polyline linea9 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea9)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea9C)));
         Polyline lineaA = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslineaA)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.lineaAC)));
         Polyline lineaB = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslineaB)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.lineaBC)));
         Polyline linea12 = mMap.addPolyline(new PolylineOptions()
                 .addAll(puntoslinea12)
-                .width(11)
+                .width(10)
                 .color(getResources().getColor(R.color.linea12C)));
 
 
