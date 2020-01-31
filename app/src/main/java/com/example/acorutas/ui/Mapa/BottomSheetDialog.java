@@ -16,6 +16,7 @@ import com.example.acorutas.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
 import static com.example.acorutas.Data.databases.estaciones.imgEstaciones;
@@ -24,6 +25,17 @@ public class BottomSheetDialog extends BottomSheetDialogFragment{
 
     public RecyclerView recyclerView;
     public LinearLayout linearLayout;
+
+    public int opcion;
+    public List<Integer> estacionesLineas;
+
+    public BottomSheetDialog() {
+    }
+
+    public BottomSheetDialog(int opcion, List<Integer> estacionesLineas) {
+        this.opcion = opcion;
+        this.estacionesLineas = estacionesLineas;
+    }
 
     @Nullable
     @Override
@@ -36,11 +48,23 @@ public class BottomSheetDialog extends BottomSheetDialogFragment{
 
         ArrayList<estacionInformacion> info = new ArrayList<>();
 
-        for(int i = 0;i<195;i++){
-            estacionInformacion infoAUX = new estacionInformacion(i+1,
-                    estacionesMetro[i][2], "Estacion: \n" + estacionesMetro[i][2], imgEstaciones[i]);
-            info.add(infoAUX);
+        if(this.opcion == 1){
+            for(int i = 0;i<estacionesLineas.size();i++){
+                estacionInformacion infoAUX = new estacionInformacion(i+1,
+                        estacionesMetro[estacionesLineas.get(i)-1][2], "Estacion: \n" + estacionesMetro[estacionesLineas.get(i)-1][2], imgEstaciones[estacionesLineas.get(i)-1]);
+                info.add(infoAUX);
+            }
+        } else{
+
+            for(int i = 0;i<195;i++){
+                estacionInformacion infoAUX = new estacionInformacion(i+1,
+                        estacionesMetro[i][2], "Estacion: \n" + estacionesMetro[i][2], imgEstaciones[i]);
+                info.add(infoAUX);
+            }
+
         }
+
+
 
         recyclerView.setLayoutManager( new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 

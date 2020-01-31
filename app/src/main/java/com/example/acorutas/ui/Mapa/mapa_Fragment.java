@@ -48,6 +48,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
     SupportMapFragment mapFragment;
     private GoogleMap mMap;
 
+    public List<Integer> estacionesLineasImprimir = new ArrayList<>();
+
     public int accion = 0;
     public String[] estacionesString;
     public String auxString;
@@ -98,12 +100,16 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                 auxStringV =  auxString.split(Pattern.quote("]"));
                 estacionesString[indice] = auxStringV[0];
 
+
                 for(int index = 0; index < estacionesString.length ; index++){
 
                     for( int index2 = 0; index2 < 195; index2++) {
 
                         if (estacionesMetro[index2][5].equals(estacionesString[index])) {
+
                             miRuta.add(new LatLng(Double.parseDouble(estacionesMetro[index2][3]), Double.parseDouble(estacionesMetro[index2][4])));
+                            estacionesLineasImprimir.add(Integer.parseInt(estacionesMetro[index2][0]));
+                            Log.i("estacion", estacionesMetro[index2][0]);
                             continue;
 
                         }
@@ -134,9 +140,22 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
 
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
+                if(accion == 1) {
 
-                bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms sheet");
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(1, estacionesLineasImprimir );
+
+                    Log.i("numero de estaciones", ""+estacionesLineasImprimir.size());
+
+                    bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms sheet");
+
+                }else{
+
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
+
+                    bottomSheetDialog.show(getFragmentManager(), "Ejemplo de bottoms sheet");
+                    Log.i("info","entro aqui");
+
+                }
             }
         });
 

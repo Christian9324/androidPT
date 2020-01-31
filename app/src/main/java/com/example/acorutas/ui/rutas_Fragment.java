@@ -1,6 +1,7 @@
 package com.example.acorutas.ui;
 
 
+import android.content.ContentValues;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -330,11 +331,30 @@ public class rutas_Fragment extends Fragment {
 
                 tv_consulta.append(contenido);
 
+                if(rutas.getRutaNodos() == "[E]"){
 
-                Bundle data_send = new Bundle();
-                String datos_prueba = rutas.getRutaNodos();
-                data_send.putString("cadena_prueba" ,datos_prueba);
-                Navigation.findNavController(getView()).navigate(R.id.navegacion_mapa, data_send);
+                    Toast.makeText(getActivity().getApplicationContext(), "Se esta calculando la ruta", Toast.LENGTH_LONG).show();
+
+                }else{
+
+                    adminBDDhelper admin = new adminBDDhelper(getActivity().getApplicationContext(), "Ubicacion", null, 1);
+                    SQLiteDatabase BDD = admin.getWritableDatabase();
+
+                    ContentValues nueva_ruta = new ContentValues();
+
+                    nueva_ruta.put("estacionInicio", rutas.getEstacionInicio());
+                    nueva_ruta.put("estacionDestino", rutas.getEstacionDestino());
+                    nueva_ruta.put("ruta", rutas.getRutaNodos());
+
+                    BDD.insert("misRutas", null, nueva_ruta);
+                    BDD.close();
+
+                    Bundle data_send = new Bundle();
+                    String datos_prueba = rutas.getRutaNodos();
+                    data_send.putString("cadena_prueba" ,datos_prueba);
+                    Navigation.findNavController(getView()).navigate(R.id.navegacion_mapa, data_send);
+
+                }
 
             }
 
