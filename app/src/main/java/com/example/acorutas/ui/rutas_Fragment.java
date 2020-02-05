@@ -331,9 +331,10 @@ public class rutas_Fragment extends Fragment {
 
                 tv_consulta.append(contenido);
 
-                if(rutas.getRutaNodos() == "[E]"){
 
-                    Toast.makeText(getActivity().getApplicationContext(), "Se esta calculando la ruta", Toast.LENGTH_LONG).show();
+                if(rutas.getRutaNodos().equals("[E]")){
+
+                    Toast.makeText(getActivity().getApplicationContext(), "Se esta calculando la ruta, intente en 5 segundos", Toast.LENGTH_LONG).show();
 
                 }else{
 

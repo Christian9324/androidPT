@@ -110,7 +110,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
                             miRuta.add(new LatLng(Double.parseDouble(estacionesMetro[index2][3]), Double.parseDouble(estacionesMetro[index2][4])));
                             estacionesLineasImprimir.add(Integer.parseInt(estacionesMetro[index2][0]));
                             Log.i("estacion", estacionesMetro[index2][0]);
-                            continue;
+                            //continue;
+                            break;
 
                         }
 
@@ -189,8 +190,8 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
 
 
-        // Add a marker in Sydney, Australia, and move the camera.
-        LatLng CDMX = new LatLng(19.403232, -99.135119);
+        // Add a marker in CDMX, Mexico, and move the camera.
+        LatLng CDMX = new LatLng(19.403232, -99.105119);
         //mMap.addMarker(new MarkerOptions().position(upiita).title("Upiita"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CDMX));
 
