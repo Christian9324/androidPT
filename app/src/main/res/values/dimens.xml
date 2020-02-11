@@ -3,4 +3,5 @@
     <dimen name="separacion">30dp</dimen>
     <dimen name="separacion2">40dp</dimen>
     <dimen name="imagen_estacion">80dp</dimen>
+    <dimen name="separacion_form">25dp</dimen>
 </resources>

@@ -15,62 +15,78 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="true"
-                android:text="Usuario"
-                android:textSize="9pt"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"/>
-            <!-- TODO: Update blank fragment layout -->
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_account_circle"/>
-            <EditText
-                android:id="@+id/ET_username"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:textSize="10pt"
-                android:gravity="center"
-                android:hint="Nombre de usuario"
-                android:layout_gravity="center"
-                android:inputType="textPersonName"/>
-            <TextView
-                android:paddingTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Latitud: "
-                android:layout_gravity="center"
-                android:textSize="14pt"/>
-            <EditText
-                android:id="@+id/ET_latitud"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="10pt"
-                android:gravity="center"
-                android:hint="Latitud"
-                android:inputType="numberDecimal|numberSigned"/>
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal">
 
-            <TextView
-                android:paddingTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Longitud: "
-                android:layout_gravity="center"
-                android:textSize="13pt"/>
-            <EditText
-                android:id="@+id/ET_longitud"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="10pt"
-                android:gravity="center"
-                android:hint="Longitud"
-                android:inputType="numberDecimal|numberSigned"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:text="Usuario"
+                    android:textSize="9pt"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_account_circle"/>
+
+                <EditText
+                    android:id="@+id/ET_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="8pt"
+                    android:gravity="center"
+                    android:hint="Nombre de usuario"
+                    android:layout_gravity="center"
+                    android:inputType="textPersonName"
+                    android:enabled="false"
+                    android:backgroundTint="@color/linea2C"
+                    android:textColor="@color/linea2C"/>
+
+                <TextView
+                    android:paddingTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latitud: "
+                    android:layout_gravity="center"
+                    android:textSize="14pt"/>
+
+                <EditText
+                    android:id="@+id/ET_latitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10pt"
+                    android:gravity="center"
+                    android:hint="Latitud"
+                    android:inputType="numberDecimal|numberSigned"/>
+
+                <TextView
+                    android:paddingTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Longitud: "
+                    android:layout_gravity="center"
+                    android:textSize="13pt"/>
+
+                <EditText
+                    android:id="@+id/ET_longitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10pt"
+                    android:gravity="center"
+                    android:hint="Longitud"
+                    android:inputType="numberDecimal|numberSigned"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

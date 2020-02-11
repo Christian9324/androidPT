@@ -2,6 +2,8 @@ package com.example.acorutas.ui;
 
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.os.Bundle;
@@ -37,6 +39,10 @@ public class user_Fragment extends Fragment {
     private TextView resultados;
     private Button Benviar, Brecolectar;
 
+    private String nombre;
+
+    public SharedPreferences prefs;
+
     public user_Fragment() {
         // Required empty public constructor
     }
@@ -54,6 +60,10 @@ public class user_Fragment extends Fragment {
         resultados = (TextView) v.findViewById(R.id.TV_resultados);
         Benviar = (Button) v.findViewById(R.id.btn_enviar);
         Brecolectar = (Button) v.findViewById(R.id.btn_recolectar);
+
+        prefs = getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        nombre = prefs.getString("nombre", "Chri");
+        username.setText(nombre);
 
         Benviar.setOnClickListener(new View.OnClickListener() {
             @Override

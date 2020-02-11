@@ -29,9 +29,11 @@
                 android:id="@+id/ET_usuario"
                 android:layout_marginTop="@dimen/separacion"
                 android:hint="@string/tv_user_login"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="#FFF"
                 android:textColor="#5F5F5F"
-                android:textColorHint="#F6F6F6"/>
+                android:textColorHint="#F6F6F6"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -39,10 +41,11 @@
                 android:id="@+id/ET_password"
                 android:layout_marginTop="@dimen/separacion"
                 android:hint="@string/tv_pass_login"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="#FFF"
                 android:inputType="textPassword"
                 android:textColor="#5F5F5F"
-                android:textColorHint="#F6F6F6"/>
+                android:textColorHint="#F6F6F6"
+                android:imeOptions="actionDone"/>
 
         </LinearLayout>
 

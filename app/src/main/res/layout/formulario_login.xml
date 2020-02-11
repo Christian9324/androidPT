@@ -1,92 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/FL_Registro"
+    android:background="#202732">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_gravity="center_horizontal|center_vertical"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:hint="@string/tv_user_form"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#FFF"
+            android:textColor="#FFF"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:id="@+id/ET_nombreUsuario"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_user_form"
-                />
-
-            <EditText
-                android:layout_width="170sp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:inputType="textEmailAddress"
+            android:hint="@string/tv_correo_form"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#FFF"
+            android:textColor="#FFF"
+            android:imeOptions="actionNext"
+            android:layout_marginTop="@dimen/separacion_form"
+            android:id="@+id/ET_correo"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_correo_form"
-                />
-
-            <EditText
-                android:layout_width="250sp"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:hint="@string/tv_pass1_form"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#FFF"
+            android:textColor="#FFF"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:layout_marginTop="@dimen/separacion_form"
+            android:id="@+id/ET_contraseña1"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_pass1_form"
-                />
-
-            <EditText
-                android:layout_width="220sp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_pass2_form"
-                />
-
-            <EditText
-                android:layout_width="220sp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
+            android:hint="@string/tv_pass2_form"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#FFF"
+            android:textColor="#FFF"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:layout_marginTop="@dimen/separacion_form"
+            android:id="@+id/ET_contraseña2"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:text="@string/btn_login_registrar"/>
+            android:text="@string/btn_login_registrar"
+            android:textColor="#F5F5F5"
+            android:background="@drawable/btn_redondeado_sin_borde"
+            android:id="@+id/BTN_Registrar"/>
 
     </LinearLayout>
 

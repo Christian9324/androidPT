@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.acorutas.Data.models.estacionInformacion;
 import com.example.acorutas.ui.Mapa.RCAdapter;
+import com.example.acorutas.ui.formLoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity{
 
     public SharedPreferences prefs;
 
-    private Button btn_acceso;
+    private Button btn_acceso, btn_registro;
     private EditText et_usuario;
     private EditText et_password;
 
@@ -46,11 +47,11 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
 
-        prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         opcion = prefs.getInt("opcion", 0);
 
         // quitar esta opcion
-        //opcion = 2;
+        //opcion = 0;
 
         if(opcion == 1){
 
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity{
         else {
             setContentView(R.layout.login);
             btn_acceso = (Button) findViewById(R.id.btn_entrar);
+            btn_registro = (Button) findViewById(R.id.btn_registro);
             et_usuario = (EditText) findViewById(R.id.ET_usuario);
             et_password = (EditText) findViewById(R.id.ET_password);
 
@@ -109,6 +111,19 @@ public class MainActivity extends AppCompatActivity{
                 public void onClick(View v) {
 
                     entrar();
+
+                }
+            });
+
+            btn_registro.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent ven = new Intent( getApplicationContext(), formLoginActivity.class);
+                    startActivity(ven);
+                    /* codigo para enlazar un fragment
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.add(R.id.login, new FormLogin_Fragment() ).commit();*/
 
                 }
             });
@@ -133,6 +148,9 @@ public class MainActivity extends AppCompatActivity{
 
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putInt("opcion", 1);
+                editor.commit();
+
+                editor.putString("nombre", user);
                 editor.commit();
 
                 Toast.makeText(this, "Acceso concedido", Toast.LENGTH_SHORT).show();
