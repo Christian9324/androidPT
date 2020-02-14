@@ -132,6 +132,23 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_cerrarSesion"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/btn_login_cerrarSesion"
+                    android:textColor="#000"
+                    android:background="@drawable/btn_redondeado_sin_borde"/>
+
+            </LinearLayout>
 
             <TextView
                 android:paddingTop="20dp"

@@ -3,6 +3,7 @@ package com.example.acorutas.ui;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
@@ -22,6 +23,7 @@ import com.example.acorutas.Data.Clases.GPS_ubicacion;
 import com.example.acorutas.Data.databases.adminBDDhelper;
 import com.example.acorutas.Data.models.PuntoMapa;
 import com.example.acorutas.Data.remote.ApiUtils;
+import com.example.acorutas.MainActivity;
 import com.example.acorutas.R;
 import com.example.acorutas.Data.remote.DjangoRestApi;
 
@@ -37,7 +39,7 @@ public class user_Fragment extends Fragment {
     private EditText latitud, longitud, username;
     private DjangoRestApi djangoRestApi;
     private TextView resultados;
-    private Button Benviar, Brecolectar;
+    private Button Benviar, Brecolectar, BSalir;
 
     private String nombre;
 
@@ -60,6 +62,7 @@ public class user_Fragment extends Fragment {
         resultados = (TextView) v.findViewById(R.id.TV_resultados);
         Benviar = (Button) v.findViewById(R.id.btn_enviar);
         Brecolectar = (Button) v.findViewById(R.id.btn_recolectar);
+        BSalir = (Button) v.findViewById(R.id.btn_cerrarSesion);
 
         prefs = getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         nombre = prefs.getString("nombre", "Chri");
@@ -76,6 +79,21 @@ public class user_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 GPS_pos();
+            }
+        });
+
+        BSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                prefs = getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("opcion", 0);
+                editor.commit();
+
+                getActivity().finishAffinity();
+                startActivity(new Intent(getActivity().getApplicationContext(), MainActivity.class));
             }
         });
 

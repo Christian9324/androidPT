@@ -18,4 +18,5 @@
     <string name="tv_pass2_form">Repetir contraseña:</string>
     <string name="ruta">Ruta por Estaciones</string>
     <string name="tv_entacionInfo">Informacion de la Estacion</string>
+    <string name="btn_login_cerrarSesion">Cerrar Sesión</string>
 </resources>
