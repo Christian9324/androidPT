@@ -2,6 +2,10 @@ package com.example.acorutas.Data.remote;
 
 public class ApiUtils {
 
+    //IP de la Vaio
+    //public static final String BASE_URL = "http://192.168.10.46:8080";
+
+    //Ip de la raspberry pi 4
     public static final String BASE_URL = "http://192.168.10.46:8080";
 
     public static DjangoRestApi getAPIService() {

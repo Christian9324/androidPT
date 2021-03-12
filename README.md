@@ -1,12 +1,5 @@
 # androidPT
 ----------
 
-This is my first example of MD.
-
-You can put code with this:
-
-```{java}
-String example;
-int j;
-```
+Esta es la aplicación de mi proyecto terminal
 
