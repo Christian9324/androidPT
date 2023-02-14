@@ -4,7 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
+import com.example.acorutas.estaciones;
+
+//import static com.example.acorutas.estaciones.estacionesMetro;
+
+
 
 public class adminBDDhelper extends SQLiteOpenHelper {
 
@@ -14,7 +18,7 @@ public class adminBDDhelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Metro(id integer primary key, linea text ,nombreEstacion text, latitud real, longitud real)");
+//        db.execSQL("create table Metro(id integer primary key, linea text ,nombreEstacion text, latitud real, longitud real)");
 
         db.execSQL("create table miUbicacion(id integer primary key autoincrement, etiqueta text ,latitud real, longitud real)");
 
@@ -22,10 +26,10 @@ public class adminBDDhelper extends SQLiteOpenHelper {
 
 
 
-        for(String[] datosM : estacionesMetro){
-            db.execSQL("INSERT INTO Metro VALUES " +
-                    "("+ datosM[0] + ",'" + datosM[1] + "','" + datosM[2] + "'," + datosM[3] + "," + datosM[4] + ")");
-        }
+//        for(String[] datosM : estaciones.estaciones){
+//            db.execSQL("INSERT INTO Metro VALUES " +
+//                    "("+ datosM[0] + ",'" + datosM[1] + "','" + datosM[2] + "'," + datosM[3] + "," + datosM[4] + ")");
+//        }
     }
 
     @Override

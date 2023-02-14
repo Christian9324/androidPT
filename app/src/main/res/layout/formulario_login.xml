@@ -14,15 +14,15 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/ET_nombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/tv_user_form"
-            android:textColorHint="#FFF"
             android:backgroundTint="#FFF"
-            android:textColor="#FFF"
+            android:hint="@string/tv_user_form"
             android:imeOptions="actionNext"
             android:inputType="textPersonName"
-            android:id="@+id/ET_nombreUsuario"/>
+            android:textColor="#FFF"
+            android:textColorHint="#FFF" />
 
         <EditText
             android:layout_width="match_parent"

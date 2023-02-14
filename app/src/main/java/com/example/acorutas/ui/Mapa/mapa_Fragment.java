@@ -38,7 +38,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
+//import static com.example.acorutas.estaciones.estacionesMetro;
+import static com.example.acorutas.estaciones.estaciones;
+import static com.example.acorutas.estaciones.lineasNombre;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -105,11 +107,11 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
                     for( int index2 = 0; index2 < 195; index2++) {
 
-                        if (estacionesMetro[index2][5].equals(estacionesString[index])) {
+                        if (estaciones[index2][5].equals(estacionesString[index])) {
 
-                            miRuta.add(new LatLng(Double.parseDouble(estacionesMetro[index2][3]), Double.parseDouble(estacionesMetro[index2][4])));
-                            estacionesLineasImprimir.add(Integer.parseInt(estacionesMetro[index2][0]));
-                            Log.i("estacion", estacionesMetro[index2][0]);
+                            miRuta.add(new LatLng(Double.parseDouble(estaciones[index2][3]), Double.parseDouble(estaciones[index2][4])));
+                            estacionesLineasImprimir.add(Integer.parseInt(estaciones[index2][0]));
+                            Log.i("estacion", estaciones[index2][0]);
                             //continue;
                             break;
 
@@ -171,6 +173,16 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
 
         mMap = googleMap;
 
+//        ArrayList<String> puntosLinea = new ArrayList<>();
+//        ArrayList<String[]> puntosLineas = new ArrayList<>();
+//        for(String lineaNom : lineasNombre){
+//            puntosLinea.clear();
+//            for(String[] elemento: estaciones ){
+//                if( lineaNom.equals(elemento[1]) ){
+//                    puntosLinea.add(elemento[3]);
+//                }
+//            }
+//        }
 
         List<LatLng> puntoslinea1 = new ArrayList<LatLng>();
         List<LatLng> puntoslinea2 = new ArrayList<LatLng>();
@@ -196,40 +208,40 @@ public class mapa_Fragment extends Fragment implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CDMX));
 
         for (int i = 0; i<20; i++){
-            puntoslinea1.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea1.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 20; i<44; i++){
-            puntoslinea2.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea2.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 44; i<65; i++){
-            puntoslinea3.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea3.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 65; i<75; i++){
-            puntoslinea4.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea4.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 75; i<88; i++){
-            puntoslinea5.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea5.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 88; i<99; i++){
-            puntoslinea6.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea6.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 99; i<113; i++){
-            puntoslinea7.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea7.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 113; i<132; i++){
-            puntoslinea8.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea8.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 132; i<144; i++){
-            puntoslinea9.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea9.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 144; i<154; i++){
-            puntoslineaA.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslineaA.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 154; i<175; i++){
-            puntoslineaB.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslineaB.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
         for (int i = 175; i<195; i++){
-            puntoslinea12.add(new LatLng( Double.parseDouble(estacionesMetro[i][3]), Double.parseDouble(estacionesMetro[i][4])));
+            puntoslinea12.add(new LatLng( Double.parseDouble(estaciones[i][3]), Double.parseDouble(estaciones[i][4])));
         }
 
 

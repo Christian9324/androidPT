@@ -29,7 +29,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.regex.Pattern;
 
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
+//import static com.example.acorutas.estaciones.estacionesMetro;
+
 
 /**
  * A simple {@link Fragment} subclass.

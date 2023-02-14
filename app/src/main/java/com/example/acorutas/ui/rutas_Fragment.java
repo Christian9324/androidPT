@@ -2,7 +2,6 @@ package com.example.acorutas.ui;
 
 
 import android.content.ContentValues;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,12 +11,10 @@ import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -32,16 +29,11 @@ import com.example.acorutas.Data.remote.ApiUtils;
 import com.example.acorutas.Data.remote.DjangoRestApi;
 import com.example.acorutas.R;
 
-import java.io.Console;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
+import static com.example.acorutas.estaciones.estaciones;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -114,7 +106,7 @@ public class rutas_Fragment extends Fragment {
         // Inicializas array
         for(int i = 0; i<195; i++){
 
-            Estacion[i] = estacionesMetro[i][2];
+            Estacion[i] = estaciones[i][2];
 
         }
 
@@ -163,11 +155,11 @@ public class rutas_Fragment extends Fragment {
         //Log.d("dato mejor" , String.valueOf(tresM[0][0]));
 
         String[] datos_spinner = new String[5];
-        datos_spinner[0] = estacionesMetro[(int)tresM[0][0] - 1][2];
-        datos_spinner[1] = estacionesMetro[(int)tresM[1][0] - 1][2];
-        datos_spinner[2] = estacionesMetro[(int)tresM[2][0] - 1][2];
-        datos_spinner[3] = estacionesMetro[(int)tresM[3][0] - 1][2];
-        datos_spinner[4] = estacionesMetro[(int)tresM[4][0] - 1][2];
+        datos_spinner[0] = estaciones[(int)tresM[0][0] - 1][2];
+        datos_spinner[1] = estaciones[(int)tresM[1][0] - 1][2];
+        datos_spinner[2] = estaciones[(int)tresM[2][0] - 1][2];
+        datos_spinner[3] = estaciones[(int)tresM[3][0] - 1][2];
+        datos_spinner[4] = estaciones[(int)tresM[4][0] - 1][2];
 
         estOrig.setAdapter(new ArrayAdapter<String>
                 (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, datos_spinner));
@@ -226,13 +218,13 @@ public class rutas_Fragment extends Fragment {
 
     public double[][] distancia(double latitud, double longitud){
 
-        double[][] distancia = new double[196][3];
+        double[][] distancia = new double[490][3];
         int indice;
         double la;
         double lo;
         double indice_rep;
 
-        for ( String[] dato : estacionesMetro){
+        for ( String[] dato : estaciones){
             indice = Integer.parseInt(dato[0]);
             la = Double.parseDouble(dato[3]);
             lo = Double.parseDouble(dato[4]);
@@ -288,12 +280,12 @@ public class rutas_Fragment extends Fragment {
 
 
         for (int ill = 0; ill < 195; ill++){
-            if(estacionesMetro[ill][2].equals(i)){
-                ini = Integer.parseInt(estacionesMetro[ill][5]);
+            if(estaciones[ill][2].equals(i)){
+                ini = Integer.parseInt(estaciones[ill][5]);
             }
 
-            if(estacionesMetro[ill][2].equals(d)){
-                des = Integer.parseInt(estacionesMetro[ill][5]);
+            if(estaciones[ill][2].equals(d)){
+                des = Integer.parseInt(estaciones[ill][5]);
             }
         }
 

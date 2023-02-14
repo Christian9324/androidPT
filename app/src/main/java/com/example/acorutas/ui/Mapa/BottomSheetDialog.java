@@ -13,13 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acorutas.Data.models.estacionInformacion;
 import com.example.acorutas.R;
+import com.example.acorutas.estaciones;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
-import static com.example.acorutas.Data.databases.estaciones.imgEstaciones;
+//import static com.example.acorutas.estaciones.estacionesMetro;
 
 public class BottomSheetDialog extends BottomSheetDialogFragment{
 
@@ -51,14 +50,14 @@ public class BottomSheetDialog extends BottomSheetDialogFragment{
         if(this.opcion == 1){
             for(int i = 0;i<estacionesLineas.size();i++){
                 estacionInformacion infoAUX = new estacionInformacion(i+1,
-                        estacionesMetro[estacionesLineas.get(i)-1][2], "Estacion: \n" + estacionesMetro[estacionesLineas.get(i)-1][2], imgEstaciones[estacionesLineas.get(i)-1]);
+                        estaciones.estaciones[estacionesLineas.get(i)-1][2], "Estacion: \n" + estaciones.estaciones[estacionesLineas.get(i)-1][2], estaciones.imgEstaciones[estacionesLineas.get(i)-1]);
                 info.add(infoAUX);
             }
         } else{
 
             for(int i = 0;i<195;i++){
                 estacionInformacion infoAUX = new estacionInformacion(i+1,
-                        estacionesMetro[i][2], "Estacion: \n" + estacionesMetro[i][2], imgEstaciones[i]);
+                        estaciones.estaciones[i][2], "Estacion: \n" + estaciones.estaciones[i][2], estaciones.imgEstaciones[i]);
                 info.add(infoAUX);
             }
 

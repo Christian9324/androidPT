@@ -35,9 +35,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.acorutas.Data.databases.estaciones.estacionesMetro;
-import static com.example.acorutas.Data.databases.estaciones.imgEstaciones;
-
 public class MainActivity extends AppCompatActivity{
 
     public int opcion=0;
@@ -98,7 +95,7 @@ public class MainActivity extends AppCompatActivity{
 
             for(int i = 0;i<195;i++){
                 estacionInformacion infoAUX = new estacionInformacion(i+1,
-                        estacionesMetro[i][2], "Estacion: \n" + estacionesMetro[i][2], imgEstaciones[i]);
+                        estaciones.estaciones[i][2], "Estacion: \n" + estaciones.estaciones[i][2], estaciones.imgEstaciones[i]);
                 info.add(infoAUX);
             }
 

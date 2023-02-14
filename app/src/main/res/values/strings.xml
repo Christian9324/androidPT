@@ -12,7 +12,7 @@
     <string name="tv_pass_login">Contraseña:</string>
     <string name="btn_login_entrar">Entrar</string>
     <string name="btn_login_registrar">Registrarse</string>
-    <string name="tv_user_form">Nombre de Usuario:</string>
+    <string name="tv_user_form">Nikname de Usuario:</string>
     <string name="tv_correo_form">Correo:</string>
     <string name="tv_pass1_form">Contraseña:</string>
     <string name="tv_pass2_form">Repetir contraseña:</string>
